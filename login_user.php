@@ -17,13 +17,14 @@ include "header.php";
             
 
             <div class="my_quiz">
-                    <h4>My Quiz</h4>            
+                    <h4><a href="add_edit_questions_user.php">My Quiz</a></h4>            
                     <hr>
                     <table>
                         <thead>
                             <tr>
                                 <th scope="cool">#</th>
                                 <th scope="cool">Quiz Name</th>
+                                <th scope="cool">Username</th>
                                 <th scope="cool">Edit</th>
                                 <th scope="cool">Delete</th>
                             </tr>
@@ -31,13 +32,14 @@ include "header.php";
                         <tbody>
                             <?php
                                 $count=0;
-                                $res=mysqli_query($link,"select * from quiz_name");
+                                $res=mysqli_query($link,"select * from quiz_name where username='$_SESSION[username]'");
                                 while($row=mysqli_fetch_array($res)){
                                     $count=$count+1;
                                     ?>
                                     <tr>
                                         <th scope="row"><?php echo $count; ?></th>
                                         <td><?php echo $row["name"]; ?></td>
+                                        <td><?php echo $row["username"]; ?></td>
                                         <td><a href="edit.php?id=<?php echo $row["id"]; ?>">Edit</a></td>
                                         <td><a href="delete.php?id=<?php echo $row["id"]; ?>">Delete</a></td>
                                     </tr>
@@ -54,7 +56,7 @@ include "header.php";
 
    <?php
     if(isset($_POST["submit"])){
-        mysqli_query($link,"insert into quiz_name values(NULL,'$_POST[name]')") or die(mysqli_error($link));
+        mysqli_query($link,"insert into quiz_name values(NULL,'$_POST[name]','$_SESSION[username]')") or die(mysqli_error($link));
     
    ?>
     <script>

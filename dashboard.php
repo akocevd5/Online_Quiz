@@ -70,6 +70,20 @@ include "header.php";
 
         }
 
+        function checkclick(checkvalue,questionno)
+        {
+            var xmlhttp= new XMLHttpRequest();
+            xmlhttp.onreadystatechange=function(){
+                if(xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    
+                }
+            };
+            xmlhttp.open("GET", "forajax/save_answer_in_session.php?questionno="+ questionno + "&value1="+checkvalue , true);
+            xmlhttp.send(null);
+
+        }
+
         function load_previous(){
             if(questionno=="1"){
                 load_questions(questionno);

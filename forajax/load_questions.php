@@ -50,14 +50,14 @@ else
         <table>
             <tr>
                 <td style="font-weight:bold; font-size: 10px; padding-left: 5px" colspan="2">
-                    <input type="checkbox" name="c1" id="c1" value="<?php echo $opt1; ?>">
+                    <input type="checkbox" name="c1" id="c1" value="<?php echo $opt1; ?>" onclick="checkclick(this.value,<?php echo $question_no ?> )"
                     <?php
                         if($ans==$opt1)
                         {
                             echo "checked";
                         }
                         
-                    ?>
+                    ?>>
                 </td>
                 <td style="padding-left: 10px;">
                     <?php
@@ -67,14 +67,14 @@ else
             </tr>
             <tr>
                 <td style="font-weight:bold; font-size: 10px; padding-left: 5px" colspan="2">
-                    <input type="checkbox" name="c2" id="c2" value="<?php echo $opt2; ?>">
+                    <input type="checkbox" name="c2" id="c2" value="<?php echo $opt2; ?>" onclick="checkclick(this.value,<?php echo $question_no ?> )"
                     <?php
                         if($ans==$opt2)
                         {
                             echo "checked";
                         }
                         
-                    ?>
+                    ?>>
                 </td>
                 <td style="padding-left: 10px;">
                     <?php
@@ -84,14 +84,14 @@ else
             </tr>
             <tr>
                 <td style="font-weight:bold; font-size: 10px; padding-left: 5px" colspan="2">
-                    <input type="checkbox" name="c3" id="c3" value="<?php echo $opt3; ?>">
+                    <input type="checkbox" name="c3" id="c3" value="<?php echo $opt3; ?>" onclick="checkclick(this.value,<?php echo $question_no ?> )"
                     <?php
                         if($ans==$opt3)
                         {
                             echo "checked";
                         }
                         
-                    ?>
+                    ?>>
                 </td>
                 <td style="padding-left: 10px;">
                     <?php
@@ -101,14 +101,14 @@ else
             </tr>
             <tr>
                 <td style="font-weight:bold; font-size: 10px; padding-left: 5px" colspan="2">
-                    <input type="checkbox" name="c4" id="c4" value="<?php echo $opt4; ?>">
+                    <input type="checkbox" name="c4" id="c4" value="<?php echo $opt4; ?>" onclick="checkclick(this.value,<?php echo $question_no ?> )"
                     <?php
                         if($ans==$opt4)
                         {
                             echo "checked";
                         }
                         
-                    ?>
+                    ?>>
                 </td>
                 <td style="padding-left: 10px;">
                     <?php

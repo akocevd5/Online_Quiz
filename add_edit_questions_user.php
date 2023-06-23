@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "header.php";
 include "connection.php";
 ?>
@@ -10,6 +11,7 @@ include "connection.php";
                             <tr>
                                 <th scope="cool">#</th>
                                 <th scope="cool">Quiz Name</th>
+                                <th scope="cool">Username</th>
                                 <th scope="cool">Select</th>
                                 
                             </tr>
@@ -17,13 +19,14 @@ include "connection.php";
                         <tbody>
                             <?php
                                 $count=0;
-                                $res=mysqli_query($link,"select * from quiz_name");
+                                $res=mysqli_query($link,"select * from quiz_name where username='$_SESSION[username]'");
                                 while($row=mysqli_fetch_array($res)){
                                     $count=$count+1;
                                     ?>
                                     <tr>
                                         <th scope="row"><?php echo $count; ?></th>
                                         <td><?php echo $row["name"]; ?></td>
+                                        <td><?php echo $row["username"]; ?></td>
                                         <td><a href="add_edit_questions.php?id=<?php echo $row["id"]; ?>">Select</a></td>
                                         
                                     </tr>

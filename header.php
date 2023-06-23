@@ -31,7 +31,7 @@
                                     <ul class="nav navbar-nav mai-top-nav">
                                         <li class="nav-item"><a href="select_quiz.php" class="nav-link">Select Quiz</a>
                                         </li>
-                                        <li class="nav-item"><a href="#" class="nav-link">Last Results</a>
+                                        <li class="nav-item"><a href="results.php" class="nav-link">Last Results</a>
                                         </li>
                                         <li class="nav-item"><a href="logout.php" class="nav-link">Logout</a>
                                         </li>
