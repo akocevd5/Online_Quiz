@@ -16,10 +16,10 @@ include "header.php";
                     
             
 
-            <div class="my_quiz">
+            <div class="quiz_name">
                     <h4><a href="add_edit_questions_user.php">My Quiz</a></h4>            
                     <hr>
-                    <table>
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th scope="cool">#</th>

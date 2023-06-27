@@ -3,7 +3,8 @@ include "connection.php";
 include "header.php";
 ?>
 
-
+<div class="row">
+    <div class="col-lg-6 col-lg-push-3 " style="min-height: 500px;">
     <h1>REGISTER</h1>
     <p>Already have an account <a href="login.php">Log in!</a></p>
     <form action="" name="form1" method="post">
@@ -23,6 +24,8 @@ include "header.php";
             </div>
         </div>
     </form>
+    </div>
+    </div>
     
     <?php
         if(isset($_POST["submit1"]))

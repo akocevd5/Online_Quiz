@@ -6,7 +6,7 @@ include "connection.php";
    <div class="row">
         <div class="col-lg-6 col-lg-push-3" style="min-height: 500px; background-color: white;">
         
-        <table>
+        <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th scope="cool">#</th>
@@ -26,7 +26,7 @@ include "connection.php";
                                     <tr>
                                         <th scope="row"><?php echo $count; ?></th>
                                         <td><?php echo $row["name"]; ?></td>
-                                        <td><?php echo $row["username"]; ?></td>
+                                         <td><?php echo $row["username"]; ?></td>
                                         <td><a href="add_edit_questions.php?id=<?php echo $row["id"]; ?>">Select</a></td>
                                         
                                     </tr>

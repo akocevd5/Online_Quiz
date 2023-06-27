@@ -13,11 +13,11 @@ while ($row = mysqli_fetch_array($res)) {
     <div class="col-lg-6 col-lg-push-3" style="min-height: 500px; background-color: white;">
         <form action="" name="form1" method="post">
             <div class="quiz_name">
-                <h4>Edit Quiz</h4>
+                <h4>Edit Quiz Name</h4>
                 <hr>
-                <p>Edit Quiz</p>
+                <p>Edit Quiz Name</p>
                 <input type="text" name="name" placeholder="Quiz Name" value="<?php echo $name ?>">
-                <button type="submit" name="submit">Edit Quiz</button>
+                <button type="submit" name="submit">Edit Quiz Name</button>
             </div>
         </form>
     </div>
@@ -29,7 +29,7 @@ if (isset($_POST["submit"])) {
 ?>
 <script>
     alert("Quiz edited successfully");
-    window.location.href = "add_edit_questions_user.php";
+    window.location.href = "add_edit_questions.php?id=<?php echo $id; ?>";
 </script>
 <?php
 }

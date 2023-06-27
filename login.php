@@ -4,7 +4,8 @@ include "connection.php";
 include "header.php";
 ?>
 
-    <div class="log">
+<div class="row">
+        <div class="col-lg-6 col-lg-push-3 " style="min-height: 500px;">
         <h1>Log in</h1>
         <p>No account? <a href="register.php">Register here!</a></p>
         
@@ -16,6 +17,7 @@ include "header.php";
                 <strong>Does not match</strong> Invalid username or password.
                 </div>
         </form>
+    </div>
     </div>
 
     <?php
