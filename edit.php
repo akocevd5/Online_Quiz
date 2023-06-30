@@ -18,6 +18,7 @@ while ($row = mysqli_fetch_array($res)) {
                 <p>Edit Quiz Name</p>
                 <input type="text" name="name" placeholder="Quiz Name" value="<?php echo $name ?>">
                 <button type="submit" name="submit">Edit Quiz Name</button>
+                <button type="submit" name="submit1">Continue without editing quiz name</button>
             </div>
         </form>
     </div>
@@ -29,6 +30,14 @@ if (isset($_POST["submit"])) {
 ?>
 <script>
     alert("Quiz edited successfully");
+    window.location.href = "add_edit_questions.php?id=<?php echo $id; ?>";
+</script>
+<?php
+}
+else if (isset($_POST["submit1"])){
+    ?>
+    <script>
+    alert("You continue without editing quiz name");
     window.location.href = "add_edit_questions.php?id=<?php echo $id; ?>";
 </script>
 <?php

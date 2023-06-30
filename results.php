@@ -9,36 +9,42 @@ include "connection.php";
             <h1>Quiz Results</h1>
             </center>
             <?php
-                $res=mysqli_query($link,"select * from quiz_results order by id desc");
-                $count=mysqli_num_rows($res);
-
-                if($count==0){
-                    ?>
-                    <center>
-            <h1>No Results Found</h1>
-            </center>
-            <?php
-                }
-                else {
-                    echo "<table class='table table-bordered'>";
-                    echo "<tr>";
-                    echo "<th>"; echo "username"; echo "</th>"; 
-                    echo "<th>"; echo "quiz name"; echo "</th>";
-                    echo "<th>"; echo "total quiestions"; echo "</th>";
-                    echo "<th>"; echo "correct answers"; echo "</th>";
-                    echo "<th>"; echo "wrong answers"; echo "</th>";                   
-                    echo "</tr>";
-
-                        while($row=mysqli_fetch_array($res)){
+                $res = mysqli_query($link, "SELECT DISTINCT quiz_name FROM quiz_results");
+                $count = mysqli_num_rows($res);
+                
+                if ($count > 0) {
+                    while ($row = mysqli_fetch_array($res)) {
+                        $quizName = $row["quiz_name"];
+                        $quizRes = mysqli_query($link, "SELECT * FROM quiz_results WHERE quiz_name='$quizName' ORDER BY correct_answer DESC");
+                
+                        echo "<h2>Quiz Name: $quizName</h2>";
+                        echo "<table class='table table-bordered'>";                        
+                        echo "<tr>";
+                        echo "<th>Username</th>"; 
+                        echo "<th>Total Questions</th>";
+                        echo "<th>Correct Answers</th>";
+                        echo "<th>Wrong Answers</th>";                   
+                        echo "</tr>";
+                
+                        while ($resultRow = mysqli_fetch_array($quizRes)) {
                             echo "<tr>";
-                            echo "<td>"; echo $row["username"]; echo "</td>"; 
-                            echo "<td>"; echo $row["quiz_name"]; echo "</td>";
-                            echo "<td>"; echo $row["total_question"]; echo "</td>";
-                            echo "<td>"; echo $row["correct_answer"]; echo "</td>";
-                            echo "<td>"; echo $row["wrong_answer"]; echo "</td>";                   
+                            echo "<td>" . $resultRow["username"] . "</td>"; 
+                            echo "<td>" . $resultRow["total_question"] . "</td>";
+                            echo "<td>" . $resultRow["correct_answer"] . "</td>";
+                            echo "<td>" . $resultRow["wrong_answer"] . "</td>";                   
                             echo "</tr>";
                         }
-                    echo "</table>";
+                
+                        echo "</table>";
+                    }
+                }
+                
+                else {
+                    ?>
+                    <center>
+                    <h1>No Results Found</h1>
+                    </center>
+                    <?php
                 }
             ?>
     </div>
