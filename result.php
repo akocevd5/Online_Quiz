@@ -52,8 +52,14 @@ include "header.php";
     </div>
   </div>
   <?php
-    
-        mysqli_query($link,"insert into quiz_results(id,username,quiz_name,total_question,correct_answer,wrong_answer) values (NULL,'$_SESSION[username]','$_SESSION[quiz_name]','$count','$correct','$wrong')") or die(mysqli_error($link));
+        if (isset($_SESSION["username"])) {
+            mysqli_query($link,"insert into quiz_results(id,username,quiz_name,total_question,correct_answer,wrong_answer) values (NULL,'$_SESSION[username]','$_SESSION[quiz_name]','$count','$correct','$wrong')") or die(mysqli_error($link));
+        }
+        else
+        {
+            mysqli_query($link,"insert into quiz_results(id,username,quiz_name,total_question,correct_answer,wrong_answer) values (NULL,' ','$_SESSION[quiz_name]','$count','$correct','$wrong')") or die(mysqli_error($link));
+        }
+        
     
     ?>
     <script type="text/javascript">

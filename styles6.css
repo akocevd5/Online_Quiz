@@ -12,7 +12,9 @@ body {
     margin: 0;
 }
 
-
+.navbar {
+    background: azure;
+}
 
 
 h1 {
@@ -49,6 +51,12 @@ button{
     width: 200px;
     height: 50px;
     color: #f2f2f2;
+   
+    transition: transform 1000ms;
+}
+button:hover, button:focus-visible{
+    transform: translateY(0.5rem);
+    transition: transform 250ms;
 }
 .alert-danger {
     text-align: center;

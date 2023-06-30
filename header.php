@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="styles5.css">
+  <link rel="stylesheet" type="text/css" href="styles6.css">
   
     <title>Document</title>
 </head>
@@ -35,7 +35,7 @@
                                                     <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                 </a>
                                                 <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                    <li><a href="add_edit_questions_user.php"><span class="edu-icon edu-locked author-log-ic"></span>My Quizzes</a></li>
+                                                    <li><a href="login_user.php"><span class="edu-icon edu-locked author-log-ic"></span>My Quizzes</a></li>
                                                     <li><a href="logout.php"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a></li>
                                                 </ul>
                                                 

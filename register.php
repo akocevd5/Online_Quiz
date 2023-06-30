@@ -2,6 +2,8 @@
 include "connection.php";
 include "header.php";
 
+session_start();
+
 function sanitizeInput($input) {
     global $link;
     $input = trim($input);
@@ -17,6 +19,7 @@ function generateCSRFToken() {
     if (!isset($_SESSION['csrf_token'])) {
         $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
     }
+    echo "<input type='hidden' name='csrf_token' value='" . escapeOutput($_SESSION['csrf_token']) . "'>";
 }
 
 function validateCSRFToken($token) {
@@ -36,10 +39,7 @@ function validateCSRFToken($token) {
                 <input type="text" name="username" placeholder="Username">
                 <input type="password" name="password" placeholder="Password">
                 <input type="password" name="password_confirm" placeholder="Confirm Password">
-
-                
-                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-
+                <?php generateCSRFToken(); ?>
                 <button type="submit" name="submit1">REGISTER</button>
                 <div class="alert alert-success" id="success" style="text-align: center; display:none;">
                     <strong>Success!</strong> Account Registration successfully.
@@ -57,14 +57,12 @@ function validateCSRFToken($token) {
                     $password = $_POST['password'];
                     $password_confirm = $_POST['password_confirm'];
 
-                    
                     validateCSRFToken($_POST['csrf_token']);
 
                     $errors = array();
                     if (empty($username)) {
                         $errors[] = "Username is required.";
                     }
-                    
 
                     if (count($errors) > 0) {
                         echo "<div class='alert alert-danger' style='text-align: center;'>";
@@ -106,6 +104,5 @@ function validateCSRFToken($token) {
 </div>
 
 <?php
-generateCSRFToken();
 include "footer.php";
 ?>

@@ -3,7 +3,7 @@ session_start();
 include "header.php";
 ?>
    <div class="row">
-        <div class="col-lg-6 col-lg-push-3" style="min-height: 500px;">
+        <div class="col-lg-6 col-lg-push-3" style="min-height: 500px; margin-left:50px">
             <br>
             <div class="row">
 
